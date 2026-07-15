@@ -77,6 +77,26 @@ export async function shopifyFetch<T>({
   query: string;
   variables?: ExtractVariables<T>;
 }): Promise<{ status: number; body: T } | never> {
+  // Check if we have a valid Shopify domain in development
+  if (!domain || domain.includes('example.myshopify.com')) {
+    // Return mock/empty response for development without proper Shopify config
+    return {
+      status: 200,
+      body: {
+        data: {
+          cart: undefined,
+          collections: { edges: [] },
+          collection: undefined,
+          products: { edges: [] },
+          product: undefined,
+          menu: undefined,
+          page: undefined,
+          pages: { edges: [] }
+        }
+      } as T
+    };
+  }
+
   try {
     const result = await fetch(endpoint, {
       method: 'POST',

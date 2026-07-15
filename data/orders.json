@@ -1,0 +1,98 @@
+[
+  {
+    "firstName": "Марія",
+    "lastName": "Коваленко",
+    "email": "maria@example.com",
+    "phone": "+380 67 123 45 67",
+    "address": "вул. Винниченка, 42",
+    "city": "Тернопіль",
+    "postalCode": "",
+    "id": "ORD-1784048769399-tjc5ras7u",
+    "createdAt": "2026-07-14T17:06:09.399Z"
+  },
+  {
+    "firstName": "Марія",
+    "lastName": "Коваленко",
+    "email": "maria@example.com",
+    "phone": "+380 67 123 45 67",
+    "address": "вул. Винниченка, 42",
+    "city": "Тернопіль",
+    "postalCode": "",
+    "items": [
+      {
+        "id": 2,
+        "name": "Іграшки для котів",
+        "price": 120,
+        "quantity": 1,
+        "emoji": "🎾"
+      }
+    ],
+    "total": 232,
+    "id": "ORD-1784048769545-uunk962yc",
+    "createdAt": "2026-07-14T17:06:09.545Z"
+  },
+  {
+    "firstName": "Михайло",
+    "lastName": "Шпінталь",
+    "email": "shpintal@gmail.com",
+    "phone": "+38 (097) 307 89 13",
+    "address": "Львівська 7 37",
+    "city": "Тернопіль",
+    "postalCode": "46000",
+    "id": "ORD-1784048945585-4vnlt3nd8",
+    "createdAt": "2026-07-14T17:09:05.585Z"
+  },
+  {
+    "firstName": "Михайло",
+    "lastName": "Шпінталь",
+    "email": "shpintal@gmail.com",
+    "phone": "+38 (097) 307 89 13",
+    "address": "Львівська 7 37",
+    "city": "Тернопіль",
+    "postalCode": "46000",
+    "items": [
+      {
+        "id": 2,
+        "name": "Іграшки для котів",
+        "price": 120,
+        "quantity": 1,
+        "emoji": "🎾"
+      }
+    ],
+    "total": 232,
+    "id": "ORD-1784048945706-0nzss63mz",
+    "createdAt": "2026-07-14T17:09:05.706Z"
+  },
+  {
+    "firstName": "Тест\tКорисТесттувач\ttest@example.com\t+380123456789\tвул. Тестова, 1",
+    "lastName": "Користувач",
+    "email": "test@example.com",
+    "phone": "+380123456789",
+    "address": "вул. Тестова, 1",
+    "city": "Тернопіль",
+    "postalCode": "",
+    "id": "ORD-1784053005350-eaept9ync",
+    "createdAt": "2026-07-14T18:16:45.350Z"
+  },
+  {
+    "firstName": "Тест\tКорисТесттувач\ttest@example.com\t+380123456789\tвул. Тестова, 1",
+    "lastName": "Користувач",
+    "email": "test@example.com",
+    "phone": "+380123456789",
+    "address": "вул. Тестова, 1",
+    "city": "Тернопіль",
+    "postalCode": "",
+    "items": [
+      {
+        "id": 1,
+        "name": "Сухий корм для котів",
+        "price": 350,
+        "quantity": 1,
+        "emoji": "🐟"
+      }
+    ],
+    "total": 485,
+    "id": "ORD-1784053005483-tx2n3z4tp",
+    "createdAt": "2026-07-14T18:16:45.483Z"
+  }
+]
