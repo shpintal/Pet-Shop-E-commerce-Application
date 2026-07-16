@@ -10,10 +10,15 @@ import Search, { SearchSkeleton } from './search';
 const { SITE_NAME } = process.env;
 
 export async function Navbar() {
-  const menu = await getMenu('next-js-frontend-header-menu');
+  let menu: Menu[] = [];
+  try {
+    menu = await getMenu('next-js-frontend-header-menu');
+  } catch {
+    // Menu failed to load
+  }
 
   return (
-    <nav className="relative flex items-center justify-between p-4 lg:px-6">
+    <nav className="relative flex items-center justify-between p-4 lg:px-6 border-b border-gray-100 bg-white/95 backdrop-blur">
       <div className="block flex-none md:hidden">
         <Suspense fallback={null}>
           <MobileMenu menu={menu} />
@@ -70,24 +75,25 @@ export async function Navbar() {
             <Search />
           </Suspense>
         </div>
-        <div className="flex justify-end md:w-1/3 gap-4">
+        <div className="flex justify-end md:w-1/3 gap-2 md:gap-4 items-center">
           <Link
             href="/register"
-            className="text-neutral-500 hover:text-black dark:text-neutral-400 dark:hover:text-neutral-300 flex items-center gap-2 text-xs md:text-sm"
+            className="px-3 py-2 rounded-lg text-purple-600 hover:bg-purple-50 font-medium text-xs md:text-sm transition"
           >
             👤 Реєстрація
           </Link>
           <Link
             href="/admin/orders"
-            className="text-neutral-500 hover:text-black dark:text-neutral-400 dark:hover:text-neutral-300 flex items-center gap-2 text-xs md:text-sm"
+            className="px-3 py-2 rounded-lg text-blue-600 hover:bg-blue-50 font-medium text-xs md:text-sm transition"
           >
             📋 Замовлення
           </Link>
           <Link
             href="/cart"
-            className="text-neutral-500 hover:text-black dark:text-neutral-400 dark:hover:text-neutral-300 flex items-center gap-2"
+            className="px-3 py-2 rounded-lg text-orange-600 hover:bg-orange-50 font-medium text-xs md:text-sm transition flex items-center gap-1"
           >
-            🛒 Кошик
+            🛒
+            <span className="hidden md:inline">Кошик</span>
           </Link>
           <CartModal />
         </div>
