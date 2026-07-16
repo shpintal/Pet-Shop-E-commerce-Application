@@ -97,13 +97,14 @@ export default function ProductsClient({ products }: ProductsClientProps) {
   return (
     <>
       {/* Filter Section */}
-      <section className="bg-purple-50 py-6 border-b-2 border-purple-200">
+      <section style={{ fontFamily: 'Lato, sans-serif', backgroundColor: 'rgb(245, 240, 248)', borderBottomColor: 'rgb(220, 180, 210)' }} className="py-6 border-b-2">
         <div className="max-w-7xl mx-auto px-4">
           {/* Mobile Filter Toggle */}
           <div className="md:hidden mb-4">
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="w-full bg-purple-600 text-white py-2 rounded-lg font-semibold hover:bg-purple-700 transition"
+              style={{ backgroundColor: 'rgb(175, 62, 143)' }}
+              className="w-full text-white py-2 rounded-lg font-semibold hover:opacity-90 transition"
             >
               {showFilters ? '🔽 Приховати фільтри' : '🔼 Показати фільтри'}
             </button>
@@ -117,10 +118,13 @@ export default function ProductsClient({ products }: ProductsClientProps) {
               <div className="flex gap-2 flex-wrap">
                 <button
                   onClick={() => setSelectedCategory(null)}
-                  className={`px-4 py-2 rounded-full font-semibold transition ${
-                    selectedCategory === null
-                      ? 'bg-purple-600 text-white'
-                      : 'bg-white text-gray-700 border-2 border-purple-200 hover:bg-purple-50'
+                  style={{
+                    backgroundColor: selectedCategory === null ? 'rgb(175, 62, 143)' : 'white',
+                    color: selectedCategory === null ? 'white' : 'rgb(119, 119, 119)',
+                    borderColor: 'rgb(220, 180, 210)'
+                  }}
+                  className={`px-4 py-2 rounded-full font-semibold transition border-2 ${
+                    selectedCategory === null ? '' : 'hover:bg-purple-50'
                   }`}
                 >
                   ✓ Все ({products.length})
@@ -131,10 +135,13 @@ export default function ProductsClient({ products }: ProductsClientProps) {
                     <button
                       key={category}
                       onClick={() => setSelectedCategory(category)}
-                      className={`px-4 py-2 rounded-full font-semibold transition whitespace-nowrap ${
-                        selectedCategory === category
-                          ? 'bg-purple-600 text-white'
-                          : 'bg-white text-gray-700 border-2 border-purple-200 hover:bg-purple-50'
+                      style={{
+                        backgroundColor: selectedCategory === category ? 'rgb(175, 62, 143)' : 'white',
+                        color: selectedCategory === category ? 'white' : 'rgb(119, 119, 119)',
+                        borderColor: 'rgb(220, 180, 210)'
+                      }}
+                      className={`px-4 py-2 rounded-full font-semibold transition whitespace-nowrap border-2 ${
+                        selectedCategory === category ? '' : 'hover:opacity-80'
                       }`}
                     >
                       {category} ({count})
@@ -145,8 +152,8 @@ export default function ProductsClient({ products }: ProductsClientProps) {
             </div>
 
             {/* Price Range Filter */}
-            <div className="bg-white rounded-lg p-4 border-2 border-purple-200">
-              <h3 className="font-bold text-gray-700 mb-4">💰 Ціна: ₴{priceRange[0]} - ₴{priceRange[1]}</h3>
+            <div style={{ borderColor: 'rgb(220, 180, 210)' }} className="bg-white rounded-lg p-4 border-2">
+              <h3 style={{ color: 'rgb(119, 119, 119)' }} className="font-bold mb-4">💰 Ціна: ₴{priceRange[0]} - ₴{priceRange[1]}</h3>
               <div className="space-y-3">
                 <div>
                   <label className="text-sm text-gray-600">Мінімальна ціна</label>
@@ -184,8 +191,8 @@ export default function ProductsClient({ products }: ProductsClientProps) {
             </div>
 
             {/* Sort Options */}
-            <div className="bg-white rounded-lg p-4 border-2 border-purple-200">
-              <h3 className="font-bold text-gray-700 mb-3">📊 Сортування</h3>
+            <div style={{ borderColor: 'rgb(220, 180, 210)' }} className="bg-white rounded-lg p-4 border-2">
+              <h3 style={{ color: 'rgb(119, 119, 119)' }} className="font-bold mb-3">📊 Сортування</h3>
               <div className="space-y-2">
                 {[
                   { value: 'name', label: '🔤 За назвою (A-Z)' },
@@ -214,7 +221,8 @@ export default function ProductsClient({ products }: ProductsClientProps) {
                 setPriceRange([minPrice, maxPrice]);
                 setSortBy('name');
               }}
-              className="w-full bg-red-100 text-red-700 py-2 rounded-lg font-semibold hover:bg-red-200 transition"
+              style={{ backgroundColor: 'rgb(255, 240, 240)', color: 'rgb(200, 80, 100)' }}
+              className="w-full py-2 rounded-lg font-semibold hover:opacity-80 transition"
             >
               ❌ Скинути фільтри
             </button>
@@ -225,8 +233,8 @@ export default function ProductsClient({ products }: ProductsClientProps) {
       {/* Results Info */}
       <section className="bg-white py-4 border-b">
         <div className="max-w-7xl mx-auto px-4">
-          <p className="text-gray-600">
-            <span className="font-bold text-purple-600">{filteredProducts.length}</span> товарів знайдено
+          <p style={{ color: 'rgb(119, 119, 119)' }}>
+            <span style={{ color: 'rgb(175, 62, 143)' }} className="font-bold">{filteredProducts.length}</span> товарів знайдено
             {selectedCategory && ` у категорії "${selectedCategory}"`}
             {(selectedCategory || priceRange[0] !== minPrice || priceRange[1] !== maxPrice) && ' • '}
             {(selectedCategory || priceRange[0] !== minPrice || priceRange[1] !== maxPrice) && (
@@ -236,7 +244,8 @@ export default function ProductsClient({ products }: ProductsClientProps) {
                   setPriceRange([minPrice, maxPrice]);
                   setSortBy('name');
                 }}
-                className="text-blue-600 hover:underline ml-2"
+                style={{ color: 'rgb(175, 62, 143)' }}
+                className="hover:underline ml-2"
               >
                 Очистити фільтри
               </button>
@@ -253,7 +262,8 @@ export default function ProductsClient({ products }: ProductsClientProps) {
               {filteredProducts.map((product) => (
                 <div
                   key={product.id}
-                  className="bg-white border-2 border-purple-200 rounded-lg overflow-hidden hover:shadow-lg transition transform hover:-translate-y-1"
+                  style={{ borderColor: 'rgb(220, 180, 210)' }}
+                  className="bg-white border-2 rounded-lg overflow-hidden hover:shadow-lg transition transform hover:-translate-y-1"
                 >
                   {/* Product Image Placeholder */}
                   <div className="bg-gradient-to-br purple-300 h-48 flex items-center justify-center">
@@ -266,24 +276,23 @@ export default function ProductsClient({ products }: ProductsClientProps) {
                       <h3 className="text-xl font-bold text-gray-800">{product.name}</h3>
                     </div>
 
-                    <span className="inline-block bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold mb-3">
+                    <span style={{ backgroundColor: 'rgb(240, 220, 235)', color: 'rgb(175, 62, 143)' }} className="inline-block px-3 py-1 rounded-full text-sm font-semibold mb-3">
                       {product.category}
                     </span>
 
-                    <p className="text-gray-600 mb-4 text-sm">{product.description}</p>
+                    <p style={{ color: 'rgb(119, 119, 119)' }} className="mb-4 text-sm">{product.description}</p>
 
                     <div className="flex items-center justify-between">
-                      <span className="text-2xl font-bold text-purple-600">
+                      <span style={{ color: 'rgb(175, 62, 143)' }} className="text-2xl font-bold">
                         ₴{typeof product.price === 'string' ? product.price.replace(' ₴', '') : product.price}
                       </span>
                       <button
                         onClick={() => handleAddToCart(product)}
                         disabled={selectedProduct === product.id}
-                        className={`px-4 py-2 rounded-lg font-semibold transition ${
-                          selectedProduct === product.id
-                            ? 'bg-green-500 text-white'
-                            : 'bg-purple-600 text-white hover:opacity-90'
-                        }`}
+                        style={{
+                          backgroundColor: selectedProduct === product.id ? 'rgb(34, 197, 94)' : 'rgb(175, 62, 143)'
+                        }}
+                        className="px-4 py-2 rounded-lg font-semibold transition text-white hover:opacity-90"
                       >
                         {selectedProduct === product.id ? '✓ Додано' : 'У кошик'}
                       </button>
@@ -295,15 +304,16 @@ export default function ProductsClient({ products }: ProductsClientProps) {
           ) : (
             <div className="text-center py-16">
               <div className="text-5xl mb-4">🔍</div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-2">Товарів не знайдено</h3>
-              <p className="text-gray-600 mb-6">Спробуйте змінити фільтри або переглянути інші категорії</p>
+              <h3 style={{ color: 'rgb(119, 119, 119)' }} className="text-2xl font-bold mb-2">Товарів не знайдено</h3>
+              <p style={{ color: 'rgb(119, 119, 119)' }} className="mb-6">Спробуйте змінити фільтри або переглянути інші категорії</p>
               <button
                 onClick={() => {
                   setSelectedCategory(null);
                   setPriceRange([minPrice, maxPrice]);
                   setSortBy('name');
                 }}
-                className="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-purple-700 transition"
+                style={{ backgroundColor: 'rgb(175, 62, 143)' }}
+                className="inline-block text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition"
               >
                 ↺ Скинути фільтри
               </button>
@@ -313,23 +323,23 @@ export default function ProductsClient({ products }: ProductsClientProps) {
       </section>
 
       {/* Info Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section style={{ backgroundColor: 'rgb(245, 245, 245)' }} className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="text-4xl mb-3">🚚</div>
-              <h3 className="text-xl font-bold mb-2">Швидка доставка</h3>
-              <p className="text-gray-600">Доставка по Тернополю за 24 години</p>
+              <h3 style={{ color: 'rgb(119, 119, 119)' }} className="text-xl font-bold mb-2">Швидка доставка</h3>
+              <p style={{ color: 'rgb(119, 119, 119)' }}>Доставка по Тернополю за 24 години</p>
             </div>
             <div className="text-center">
               <div className="text-4xl mb-3">✓</div>
-              <h3 className="text-xl font-bold mb-2">Якість гарантована</h3>
-              <p className="text-gray-600">Тільки оригінальні товари від перевірених виробників</p>
+              <h3 style={{ color: 'rgb(119, 119, 119)' }} className="text-xl font-bold mb-2">Якість гарантована</h3>
+              <p style={{ color: 'rgb(119, 119, 119)' }}>Тільки оригінальні товари від перевірених виробників</p>
             </div>
             <div className="text-center">
               <div className="text-4xl mb-3">💬</div>
-              <h3 className="text-xl font-bold mb-2">Консультація</h3>
-              <p className="text-gray-600">Наша команда завжди готова допомогти</p>
+              <h3 style={{ color: 'rgb(119, 119, 119)' }} className="text-xl font-bold mb-2">Консультація</h3>
+              <p style={{ color: 'rgb(119, 119, 119)' }}>Наша команда завжди готова допомогти</p>
             </div>
           </div>
         </div>

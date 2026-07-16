@@ -76,45 +76,51 @@ export default function LoginForm() {
 
   if (success) {
     return (
-      <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+      <div style={{ fontFamily: 'Lato, sans-serif' }} className="bg-white rounded-lg shadow-lg p-8 text-center">
         <div className="text-5xl mb-4">✅</div>
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">Ви увійшли!</h2>
-        <p className="text-gray-600">Перенаправлення на головну...</p>
+        <h2 style={{ color: 'rgb(119, 119, 119)', fontFamily: 'Poppins, sans-serif' }} className="text-2xl font-bold mb-2">Ви увійшли!</h2>
+        <p style={{ color: 'rgb(119, 119, 119)' }}>Перенаправлення на головну...</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8 space-y-6">
+    <form onSubmit={handleSubmit} style={{ fontFamily: 'Lato, sans-serif' }} className="bg-white rounded-lg shadow-lg p-8 space-y-6">
       {/* Email */}
       <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+        <label style={{ color: 'rgb(119, 119, 119)' }} className="block text-sm font-semibold mb-2">Email</label>
         <input
           type="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
           placeholder="ivan@example.com"
-          className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:border-purple-500 outline-none transition"
+          style={{ borderColor: 'rgb(220, 180, 210)', color: 'rgb(119, 119, 119)' }}
+          className="w-full border-2 rounded-lg px-4 py-3 outline-none transition"
+          onFocus={(e) => { e.target.style.borderColor = 'rgb(175, 62, 143)'; }}
+          onBlur={(e) => { e.target.style.borderColor = 'rgb(220, 180, 210)'; }}
         />
       </div>
 
       {/* Password */}
       <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-2">Пароль</label>
+        <label style={{ color: 'rgb(119, 119, 119)' }} className="block text-sm font-semibold mb-2">Пароль</label>
         <input
           type="password"
           name="password"
           value={formData.password}
           onChange={handleChange}
           placeholder="••••••"
-          className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:border-purple-500 outline-none transition"
+          style={{ borderColor: 'rgb(220, 180, 210)', color: 'rgb(119, 119, 119)' }}
+          className="w-full border-2 rounded-lg px-4 py-3 outline-none transition"
+          onFocus={(e) => { e.target.style.borderColor = 'rgb(175, 62, 143)'; }}
+          onBlur={(e) => { e.target.style.borderColor = 'rgb(220, 180, 210)'; }}
         />
       </div>
 
       {/* Error Message */}
       {error && (
-        <div className="bg-red-50 border-2 border-red-200 text-red-700 p-3 rounded-lg text-sm">
+        <div style={{ backgroundColor: 'rgb(255, 240, 240)', borderColor: 'rgb(220, 180, 210)', color: 'rgb(200, 80, 100)' }} className="border-2 p-3 rounded-lg text-sm">
           {error}
         </div>
       )}
@@ -123,21 +129,22 @@ export default function LoginForm() {
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-lg font-bold hover:opacity-90 transition disabled:opacity-50"
+        style={{ backgroundColor: 'rgb(175, 62, 143)' }}
+        className="w-full text-white py-3 rounded-lg font-bold hover:opacity-90 transition disabled:opacity-50"
       >
         {isLoading ? 'Вхід...' : 'Увійти'}
       </button>
 
       {/* Register Link */}
-      <p className="text-center text-gray-600 text-sm">
+      <p style={{ color: 'rgb(119, 119, 119)' }} className="text-center text-sm">
         Немає аккаунту?{' '}
-        <Link href="/register" className="text-purple-600 font-semibold hover:underline">
+        <Link href="/register" style={{ color: 'rgb(175, 62, 143)' }} className="font-semibold hover:underline">
           Зареєструватися
         </Link>
       </p>
 
       {/* Demo Info */}
-      <div className="bg-blue-50 border-2 border-blue-200 p-4 rounded-lg text-sm text-blue-700">
+      <div style={{ backgroundColor: 'rgb(220, 255, 220)', borderColor: 'rgb(150, 200, 150)', color: 'rgb(30, 100, 30)' }} className="border-2 p-4 rounded-lg text-sm">
         <p className="font-semibold mb-2">📝 Для тестування:</p>
         <p>Email: test@example.com</p>
         <p>Пароль: 123456</p>

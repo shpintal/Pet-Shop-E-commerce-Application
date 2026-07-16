@@ -19,7 +19,7 @@ export async function Navbar() {
   }
 
   return (
-    <nav className="relative flex items-center justify-between p-4 lg:px-6 border-b border-gray-300 bg-white">
+    <nav style={{ fontFamily: 'Lato, sans-serif' }} className="relative flex items-center justify-between p-4 lg:px-6 border-b border-gray-300 bg-white">
       <div className="block flex-none md:hidden">
         <Suspense fallback={null}>
           <MobileMenu menu={menu} />

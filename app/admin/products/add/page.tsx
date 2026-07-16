@@ -7,12 +7,12 @@ export const metadata = {
 
 export default function AddProductPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white" style={{ fontFamily: 'Lato, sans-serif' }}>
       {/* Header */}
-      <section className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-12">
+      <section style={{ backgroundColor: 'rgb(175, 62, 143)' }} className="text-white py-12">
         <div className="max-w-3xl mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-2">➕ Додати новий товар</h1>
-          <p className="text-lg opacity-90">Заповніть форму щоб додати товар до каталогу</p>
+          <h1 style={{ fontFamily: 'Poppins, sans-serif', fontSize: '40px', fontWeight: 700 }} className="mb-2">➕ Додати новий товар</h1>
+          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.9)' }}>Заповніть форму щоб додати товар до каталогу</p>
         </div>
       </section>
 

@@ -41,10 +41,10 @@ export default function EditProductPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center" style={{ fontFamily: 'Lato, sans-serif' }}>
         <div className="text-center">
           <div className="text-4xl mb-4">⏳</div>
-          <p className="text-gray-600">Завантаження...</p>
+          <p style={{ color: 'rgb(119, 119, 119)' }}>Завантаження...</p>
         </div>
       </div>
     );
@@ -52,11 +52,11 @@ export default function EditProductPage() {
 
   if (notFound) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center" style={{ fontFamily: 'Lato, sans-serif' }}>
         <div className="text-center bg-white rounded-lg shadow-lg p-8">
           <div className="text-6xl mb-4">❌</div>
-          <h1 className="text-2xl font-bold text-gray-800 mb-2">Товар не знайдено</h1>
-          <p className="text-gray-600">Товар з ID {id} не існує</p>
+          <h1 style={{ color: 'rgb(119, 119, 119)', fontFamily: 'Poppins, sans-serif' }} className="text-2xl font-bold mb-2">Товар не знайдено</h1>
+          <p style={{ color: 'rgb(119, 119, 119)' }}>Товар з ID {id} не існує</p>
         </div>
       </div>
     );
@@ -65,12 +65,12 @@ export default function EditProductPage() {
   if (!product) return null;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white" style={{ fontFamily: 'Lato, sans-serif' }}>
       {/* Header */}
-      <section className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-12">
+      <section style={{ backgroundColor: 'rgb(175, 62, 143)' }} className="text-white py-12">
         <div className="max-w-3xl mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-2">✏️ Редагувати товар</h1>
-          <p className="text-lg opacity-90">Оновіть інформацію про товар</p>
+          <h1 style={{ fontFamily: 'Poppins, sans-serif', fontSize: '40px', fontWeight: 700 }} className="mb-2">✏️ Редагувати товар</h1>
+          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.9)' }}>Оновіть інформацію про товар</p>
         </div>
       </section>
 

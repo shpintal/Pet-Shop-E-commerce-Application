@@ -32,12 +32,12 @@ export default function WishlistPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white" style={{ fontFamily: 'Lato, sans-serif' }}>
       {/* Header */}
-      <section className="bg-gradient-to-r from-red-500 to-pink-500 text-white py-12">
+      <section style={{ backgroundColor: 'rgb(175, 62, 143)' }} className="text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-2">❤️ Обране</h1>
-          <p className="text-lg opacity-90">{wishlist.length} товарів в обраному</p>
+          <h1 style={{ fontFamily: 'Poppins, sans-serif', fontSize: '40px', fontWeight: 700 }} className="mb-2">❤️ Обране</h1>
+          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.9)' }}>{wishlist.length} товарів в обраному</p>
         </div>
       </section>
 
@@ -49,22 +49,25 @@ export default function WishlistPage() {
               {wishlist.map((item) => (
                 <div
                   key={item.id}
-                  className="bg-white border-2 border-red-200 rounded-lg p-6 flex items-center justify-between hover:shadow-lg transition"
+                  style={{ borderColor: 'rgb(220, 180, 210)' }}
+                  className="bg-white border-2 rounded-lg p-6 flex items-center justify-between hover:shadow-lg transition"
                 >
                   <div>
-                    <h3 className="text-xl font-bold text-gray-800">{item.name}</h3>
-                    <p className="text-sm text-gray-600 mt-1">ID: {item.id}</p>
+                    <h3 style={{ color: 'rgb(119, 119, 119)' }} className="text-xl font-bold">{item.name}</h3>
+                    <p style={{ color: 'rgb(119, 119, 119)' }} className="text-sm mt-1">ID: {item.id}</p>
                   </div>
                   <div className="flex gap-4">
                     <Link
                       href="/products"
-                      className="px-4 py-2 bg-purple-500 text-white rounded-lg font-semibold hover:bg-purple-600 transition"
+                      style={{ backgroundColor: 'rgb(175, 62, 143)' }}
+                      className="px-4 py-2 text-white rounded-lg font-semibold hover:opacity-90 transition"
                     >
                       Перейти до товару
                     </Link>
                     <button
                       onClick={() => removeFromWishlist(item.id)}
-                      className="px-4 py-2 bg-red-100 text-red-600 rounded-lg font-semibold hover:bg-red-200 transition"
+                      style={{ backgroundColor: 'rgb(255, 240, 240)', color: 'rgb(200, 80, 100)' }}
+                      className="px-4 py-2 rounded-lg font-semibold hover:opacity-80 transition"
                     >
                       Видалити
                     </button>
@@ -75,11 +78,12 @@ export default function WishlistPage() {
           ) : (
             <div className="text-center py-16">
               <div className="text-6xl mb-4">🤍</div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-2">Обране порожнє</h2>
-              <p className="text-gray-600 mb-6">Додайте товари до обраного щоб легше їх знайти пізніше</p>
+              <h2 style={{ color: 'rgb(119, 119, 119)' }} className="text-2xl font-bold mb-2">Обране порожнє</h2>
+              <p style={{ color: 'rgb(119, 119, 119)' }} className="mb-6">Додайте товари до обраного щоб легше їх знайти пізніше</p>
               <Link
                 href="/products"
-                className="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold px-8 py-3 rounded-full hover:shadow-lg transition"
+                style={{ backgroundColor: 'rgb(175, 62, 143)' }}
+                className="inline-block text-white font-bold px-8 py-3 rounded-full hover:opacity-90 transition"
               >
                 Перейти до каталогу →
               </Link>

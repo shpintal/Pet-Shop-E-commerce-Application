@@ -93,12 +93,12 @@ const DEFAULT_PRODUCTS = [
 
 export default function ProductsPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white" style={{ fontFamily: 'Lato, sans-serif' }}>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-pink-500 to-purple-600 text-white py-16">
+      <section style={{ backgroundColor: 'rgb(175, 62, 143)' }} className="relative text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">Продукція</h1>
-          <p className="text-xl opacity-90">Всього що потрібно вашим улюбленцям</p>
+          <h1 style={{ fontFamily: 'Poppins, sans-serif', fontSize: '56px', fontWeight: 700 }} className="mb-4">Продукція</h1>
+          <p style={{ fontSize: '20px', color: 'rgba(255,255,255,0.9)' }}>Всього що потрібно вашим улюбленцям</p>
         </div>
       </section>
 

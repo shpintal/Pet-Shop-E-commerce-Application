@@ -71,12 +71,12 @@ export default async function AdminPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div className="min-h-screen bg-white" style={{ fontFamily: 'Lato, sans-serif' }}>
       {/* Header */}
-      <section className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 text-white py-16">
+      <section style={{ backgroundColor: 'rgb(175, 62, 143)' }} className="text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-5xl font-bold mb-4">🔧 Адміністрація</h1>
-          <p className="text-xl opacity-90">Управління Pet Shop магазином</p>
+          <h1 style={{ fontFamily: 'Poppins, sans-serif', fontSize: '48px', fontWeight: 700 }} className="mb-4">🔧 Адміністрація</h1>
+          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.9)' }}>Управління Pet Shop магазином</p>
         </div>
       </section>
 
@@ -85,31 +85,31 @@ export default async function AdminPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
             {/* Total Revenue */}
-            <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-green-500">
-              <div className="text-sm text-gray-600 mb-2">Загальний дохід</div>
-              <div className="text-3xl font-bold text-green-600">₴{stats.revenue}</div>
-              <div className="text-xs text-gray-500 mt-2">💰 За всі часи</div>
+            <div style={{ borderLeftColor: 'rgb(175, 62, 143)' }} className="bg-white rounded-lg shadow-lg p-8 border-l-4">
+              <div style={{ color: 'rgb(119, 119, 119)' }} className="text-sm mb-2">Загальний дохід</div>
+              <div style={{ color: 'rgb(175, 62, 143)' }} className="text-3xl font-bold">₴{stats.revenue}</div>
+              <div style={{ color: 'rgb(119, 119, 119)' }} className="text-xs mt-2">💰 За всі часи</div>
             </div>
 
             {/* Total Orders */}
-            <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-blue-500">
-              <div className="text-sm text-gray-600 mb-2">Замовлень</div>
-              <div className="text-3xl font-bold text-blue-600">{stats.orders}</div>
-              <div className="text-xs text-gray-500 mt-2">📋 Завершено</div>
+            <div style={{ borderLeftColor: 'rgb(175, 62, 143)' }} className="bg-white rounded-lg shadow-lg p-8 border-l-4">
+              <div style={{ color: 'rgb(119, 119, 119)' }} className="text-sm mb-2">Замовлень</div>
+              <div style={{ color: 'rgb(175, 62, 143)' }} className="text-3xl font-bold">{stats.orders}</div>
+              <div style={{ color: 'rgb(119, 119, 119)' }} className="text-xs mt-2">📋 Завершено</div>
             </div>
 
             {/* Products */}
-            <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-purple-500">
-              <div className="text-sm text-gray-600 mb-2">Товари</div>
-              <div className="text-3xl font-bold text-purple-600">12</div>
-              <div className="text-xs text-gray-500 mt-2">🛍️ В каталозі</div>
+            <div style={{ borderLeftColor: 'rgb(175, 62, 143)' }} className="bg-white rounded-lg shadow-lg p-8 border-l-4">
+              <div style={{ color: 'rgb(119, 119, 119)' }} className="text-sm mb-2">Товари</div>
+              <div style={{ color: 'rgb(175, 62, 143)' }} className="text-3xl font-bold">12</div>
+              <div style={{ color: 'rgb(119, 119, 119)' }} className="text-xs mt-2">🛍️ В каталозі</div>
             </div>
 
             {/* Users */}
-            <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-orange-500">
-              <div className="text-sm text-gray-600 mb-2">Користувачі</div>
-              <div className="text-3xl font-bold text-orange-600">24</div>
-              <div className="text-xs text-gray-500 mt-2">👥 Зареєстровано</div>
+            <div style={{ borderLeftColor: 'rgb(175, 62, 143)' }} className="bg-white rounded-lg shadow-lg p-8 border-l-4">
+              <div style={{ color: 'rgb(119, 119, 119)' }} className="text-sm mb-2">Користувачі</div>
+              <div style={{ color: 'rgb(175, 62, 143)' }} className="text-3xl font-bold">24</div>
+              <div style={{ color: 'rgb(119, 119, 119)' }} className="text-xs mt-2">👥 Зареєстровано</div>
             </div>
           </div>
         </div>
@@ -118,7 +118,7 @@ export default async function AdminPage() {
       {/* Menu Section */}
       <section className="py-12 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8">Менеджмент</h2>
+          <h2 style={{ color: 'rgb(119, 119, 119)', fontFamily: 'Poppins, sans-serif' }} className="text-3xl font-bold mb-8">Менеджмент</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {menuItems.map((item) => (
               <Link
@@ -126,15 +126,15 @@ export default async function AdminPage() {
                 href={item.href}
                 className="group bg-white rounded-lg shadow-lg hover:shadow-2xl overflow-hidden transition transform hover:-translate-y-2"
               >
-                <div className={`bg-gradient-to-r ${item.color} h-20 flex items-center justify-center`}>
+                <div style={{ backgroundColor: 'rgb(175, 62, 143)' }} className="h-20 flex items-center justify-center">
                   <span className="text-5xl group-hover:scale-125 transition">{item.icon}</span>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-600 mb-4">{item.description}</p>
+                  <h3 style={{ color: 'rgb(119, 119, 119)', fontFamily: 'Poppins, sans-serif' }} className="text-xl font-bold mb-2">{item.title}</h3>
+                  <p style={{ color: 'rgb(119, 119, 119)' }} className="text-sm mb-4">{item.description}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-gray-700">{item.count}</span>
-                    <span className="text-gray-400 group-hover:text-gray-600 transition">→</span>
+                    <span style={{ color: 'rgb(175, 62, 143)' }} className="text-2xl font-bold">{item.count}</span>
+                    <span style={{ color: 'rgb(200, 180, 200)' }} className="group-hover:text-gray-600 transition">→</span>
                   </div>
                 </div>
               </Link>
@@ -144,20 +144,20 @@ export default async function AdminPage() {
       </section>
 
       {/* Quick Actions */}
-      <section className="py-12 px-4 bg-white">
+      <section className="py-12 px-4" style={{ backgroundColor: 'rgb(245, 245, 245)' }}>
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8">Швидкі дії</h2>
+          <h2 style={{ color: 'rgb(119, 119, 119)', fontFamily: 'Poppins, sans-serif' }} className="text-3xl font-bold mb-8">Швидкі дії</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <button className="p-6 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:shadow-lg transition font-semibold">
+            <button style={{ backgroundColor: 'rgb(175, 62, 143)' }} className="p-6 text-white rounded-lg hover:shadow-lg transition font-semibold">
               ✉️ Відправити розсилку користувачам
             </button>
-            <button className="p-6 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg hover:shadow-lg transition font-semibold">
+            <button style={{ backgroundColor: 'rgb(175, 62, 143)' }} className="p-6 text-white rounded-lg hover:shadow-lg transition font-semibold">
               📊 Завантажити звіт продаж
             </button>
-            <button className="p-6 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition font-semibold">
+            <button style={{ backgroundColor: 'rgb(175, 62, 143)' }} className="p-6 text-white rounded-lg hover:shadow-lg transition font-semibold">
               🎁 Створити промо-акцію
             </button>
-            <button className="p-6 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg hover:shadow-lg transition font-semibold">
+            <button style={{ backgroundColor: 'rgb(175, 62, 143)' }} className="p-6 text-white rounded-lg hover:shadow-lg transition font-semibold">
               ⚙️ Налаштування магазину
             </button>
           </div>
@@ -165,8 +165,8 @@ export default async function AdminPage() {
       </section>
 
       {/* Footer */}
-      <section className="py-8 px-4 text-center text-gray-600 border-t">
-        <p>Pet Shop Admin Panel v1.0 • Останнє оновлення: сьогодні</p>
+      <section style={{ borderTopColor: 'rgb(220, 180, 210)' }} className="py-8 px-4 text-center border-t">
+        <p style={{ color: 'rgb(119, 119, 119)' }}>Pet Shop Admin Panel v1.0 • Останнє оновлення: сьогодні</p>
       </section>
     </div>
   );

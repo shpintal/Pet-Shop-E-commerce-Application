@@ -44,12 +44,12 @@ export default async function OrdersPage() {
   const orders = await getOrders();
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white" style={{ fontFamily: 'Lato, sans-serif' }}>
       {/* Header */}
-      <section className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-12">
+      <section style={{ backgroundColor: 'rgb(175, 62, 143)' }} className="text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-2">Замовлення</h1>
-          <p className="text-lg opacity-90">Управління замовленнями покупців</p>
+          <h1 style={{ fontFamily: 'Poppins, sans-serif', fontSize: '40px', fontWeight: 700 }} className="mb-2">Замовлення</h1>
+          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.9)' }}>Управління замовленнями покупців</p>
         </div>
       </section>
 
@@ -61,8 +61,8 @@ export default async function OrdersPage() {
           ) : (
             <div className="bg-white rounded-lg p-12 text-center">
               <div className="text-6xl mb-4">📭</div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-2">Немає замовлень</h2>
-              <p className="text-gray-600">Поки що замовлень не надходило</p>
+              <h2 style={{ color: 'rgb(119, 119, 119)' }} className="text-2xl font-bold mb-2">Немає замовлень</h2>
+              <p style={{ color: 'rgb(119, 119, 119)' }}>Поки що замовлень не надходило</p>
             </div>
           )}
         </div>

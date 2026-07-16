@@ -31,9 +31,9 @@ export default async function Page(props: { params: Promise<{ page: string }> })
 
   return (
     <>
-      <h1 className="mb-8 text-5xl font-bold">{page.title}</h1>
+      <h1 style={{ fontFamily: 'Poppins, sans-serif', fontSize: '48px', fontWeight: 700, color: 'rgb(175, 62, 143)' }} className="mb-8">{page.title}</h1>
       <Prose className="mb-8" html={page.body} />
-      <p className="text-sm italic">
+      <p style={{ color: 'rgb(119, 119, 119)' }} className="text-sm italic">
         {`This document was last updated on ${new Intl.DateTimeFormat(undefined, {
           year: 'numeric',
           month: 'long',
