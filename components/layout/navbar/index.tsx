@@ -91,6 +91,13 @@ export async function Navbar() {
             📋 Замовлення
           </Link>
           <Link
+            href="/wishlist"
+            className="px-3 py-2 rounded-lg text-red-600 hover:bg-red-50 font-medium text-xs md:text-sm transition flex items-center gap-1"
+          >
+            ❤️
+            <span className="hidden md:inline">Обране</span>
+          </Link>
+          <Link
             href="/cart"
             className="px-3 py-2 rounded-lg text-orange-600 hover:bg-orange-50 font-medium text-xs md:text-sm transition flex items-center gap-1"
           >

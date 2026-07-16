@@ -91,6 +91,16 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                   </li>
                   <li>
                     <Link
+                      href="/wishlist"
+                      prefetch={true}
+                      onClick={closeMobileMenu}
+                      className="block py-3 px-4 rounded-lg text-lg font-semibold text-gray-800 hover:bg-red-100 transition"
+                    >
+                      ❤️ Обране
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
                       href="/cart"
                       prefetch={true}
                       onClick={closeMobileMenu}
