@@ -97,7 +97,7 @@ export default function ProductsClient({ products }: ProductsClientProps) {
   return (
     <>
       {/* Filter Section */}
-      <section className="bg-gradient-to-r from-purple-50 to-pink-50 py-6 border-b-2 border-purple-200">
+      <section className="bg-purple-50 py-6 border-b-2 border-purple-200">
         <div className="max-w-7xl mx-auto px-4">
           {/* Mobile Filter Toggle */}
           <div className="md:hidden mb-4">
@@ -256,7 +256,7 @@ export default function ProductsClient({ products }: ProductsClientProps) {
                   className="bg-white border-2 border-purple-200 rounded-lg overflow-hidden hover:shadow-lg transition transform hover:-translate-y-1"
                 >
                   {/* Product Image Placeholder */}
-                  <div className="bg-gradient-to-br from-purple-300 to-pink-300 h-48 flex items-center justify-center">
+                  <div className="bg-gradient-to-br purple-300 h-48 flex items-center justify-center">
                     <span className="text-6xl">{product.emoji}</span>
                   </div>
 
@@ -282,7 +282,7 @@ export default function ProductsClient({ products }: ProductsClientProps) {
                         className={`px-4 py-2 rounded-lg font-semibold transition ${
                           selectedProduct === product.id
                             ? 'bg-green-500 text-white'
-                            : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:opacity-90'
+                            : 'bg-purple-600 text-white hover:opacity-90'
                         }`}
                       >
                         {selectedProduct === product.id ? '✓ Додано' : 'У кошик'}
