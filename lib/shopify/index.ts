@@ -12,7 +12,7 @@ import {
   unstable_cacheTag as cacheTag,
   unstable_cacheLife as cacheLife
 } from 'next/cache';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 import {
   addToCartMutation,
