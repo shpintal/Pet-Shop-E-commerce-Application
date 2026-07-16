@@ -103,28 +103,29 @@ export default function RegisterForm() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username: formData.username,
-          email: formData.email,
-          password: formData.password,
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          phone: formData.phone
-        }),
-      });
+      // Отримати список користувачів з localStorage
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        setError(data.error || 'Помилка при реєстрації');
+      // Перевірити чи користувач вже існує
+      if (users.some((u: any) => u.email === formData.email)) {
+        setError('Користувач з цим email уже зареєстрований');
         setIsSubmitting(false);
         return;
       }
+
+      // Додати нового користувача
+      users.push({
+        id: Date.now(),
+        username: formData.username,
+        email: formData.email,
+        password: formData.password,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        phone: formData.phone
+      });
+
+      // Зберегти користувачів
+      localStorage.setItem('users', JSON.stringify(users));
 
       setSuccess(true);
       setFormData({
@@ -141,7 +142,7 @@ export default function RegisterForm() {
         router.push('/login');
       }, 2000);
     } catch (err) {
-      setError('Помилка мережі при реєстрації');
+      setError('Помилка при реєстрації');
       setIsSubmitting(false);
     }
   };
