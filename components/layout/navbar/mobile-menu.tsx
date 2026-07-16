@@ -61,35 +61,93 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
             leaveFrom="translate-x-0"
             leaveTo="translate-x-[-100%]"
           >
-            <Dialog.Panel className="fixed bottom-0 left-0 right-0 top-0 flex h-full w-full flex-col bg-white pb-6 dark:bg-black">
+            <Dialog.Panel className="fixed bottom-0 left-0 right-0 top-0 flex h-full w-full flex-col bg-gradient-to-b from-white to-gray-50 pb-6 dark:bg-black">
               <div className="p-4">
                 <button
-                  className="mb-4 flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:text-white"
+                  className="mb-4 flex h-11 w-11 items-center justify-center rounded-md bg-red-100 text-red-600 transition-colors hover:bg-red-200"
                   onClick={closeMobileMenu}
                   aria-label="Close mobile menu"
                 >
                   <XMarkIcon className="h-6" />
                 </button>
 
-                <div className="mb-4 w-full">
+                <div className="mb-6 w-full">
                   <Suspense fallback={<SearchSkeleton />}>
                     <Search />
                   </Suspense>
                 </div>
-                {menu.length ? (
-                  <ul className="flex w-full flex-col">
-                    {menu.map((item: Menu) => (
-                      <li
-                        className="py-2 text-xl text-black transition-colors hover:text-neutral-500 dark:text-white"
-                        key={item.title}
-                      >
-                        <Link href={item.path} prefetch={true} onClick={closeMobileMenu}>
-                          {item.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
+
+                {/* Main Menu */}
+                <ul className="flex w-full flex-col space-y-2 mb-6 border-b pb-6">
+                  <li>
+                    <Link
+                      href="/products"
+                      prefetch={true}
+                      onClick={closeMobileMenu}
+                      className="block py-3 px-4 rounded-lg text-lg font-semibold text-gray-800 hover:bg-purple-100 transition"
+                    >
+                      🛍️ Продукція
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/cart"
+                      prefetch={true}
+                      onClick={closeMobileMenu}
+                      className="block py-3 px-4 rounded-lg text-lg font-semibold text-gray-800 hover:bg-blue-100 transition"
+                    >
+                      🛒 Кошик
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/register"
+                      prefetch={true}
+                      onClick={closeMobileMenu}
+                      className="block py-3 px-4 rounded-lg text-lg font-semibold text-gray-800 hover:bg-green-100 transition"
+                    >
+                      👤 Реєстрація
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/login"
+                      prefetch={true}
+                      onClick={closeMobileMenu}
+                      className="block py-3 px-4 rounded-lg text-lg font-semibold text-gray-800 hover:bg-orange-100 transition"
+                    >
+                      🔐 Вхід
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/about"
+                      prefetch={true}
+                      onClick={closeMobileMenu}
+                      className="block py-3 px-4 rounded-lg text-lg font-semibold text-gray-800 hover:bg-pink-100 transition"
+                    >
+                      ℹ️ Про нас
+                    </Link>
+                  </li>
+                </ul>
+
+                {/* Additional Links */}
+                <div className="space-y-2">
+                  <Link
+                    href="/admin"
+                    onClick={closeMobileMenu}
+                    className="block py-2 px-4 text-gray-600 hover:text-gray-800 text-sm"
+                  >
+                    🔧 Адміністрація
+                  </Link>
+                  <Link
+                    href="/admin/orders"
+                    onClick={closeMobileMenu}
+                    className="block py-2 px-4 text-gray-600 hover:text-gray-800 text-sm"
+                  >
+                    📋 Замовлення
+                  </Link>
+                </div>
               </div>
             </Dialog.Panel>
           </Transition.Child>
