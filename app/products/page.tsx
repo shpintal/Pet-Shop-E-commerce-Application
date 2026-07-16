@@ -6,78 +6,88 @@ export const metadata = {
   description: 'Каталог товарів для домашніх тварин'
 };
 
-const products = [
+// Default products
+const DEFAULT_PRODUCTS = [
   {
     id: 1,
     name: 'Сухий корм для котів',
-    price: '350 ₴',
+    price: 350,
     category: 'Корми',
     description: 'Збалансований сухий корм преміум якості',
-    emoji: '🐟'
+    emoji: '🐱',
+    stock: 45
   },
   {
     id: 2,
     name: 'Іграшки для котів',
-    price: '120 ₴',
+    price: 120,
     category: 'Іграшки',
     description: 'Набір різноманітних іграшок для активного дозвілля',
-    emoji: '🎾'
+    emoji: '🎾',
+    stock: 78
   },
   {
     id: 3,
     name: 'Лоток для котів',
-    price: '450 ₴',
+    price: 450,
     category: 'Аксесуари',
     description: 'Закритий туалет для котів з фільтром запахів',
-    emoji: '🚽'
+    emoji: '🚽',
+    stock: 34
   },
   {
     id: 4,
     name: 'Лежанка для собак',
-    price: '650 ₴',
+    price: 650,
     category: 'Меблі',
     description: 'Комфортна ліжко для малих та середніх собак',
-    emoji: '🛏️'
+    emoji: '🛏️',
+    stock: 12
   },
   {
     id: 5,
     name: 'Ошийник та повідець',
-    price: '280 ₴',
+    price: 280,
     category: 'Екіпіровка',
     description: 'Міцний та стильний набір екіпіровки',
-    emoji: '🎀'
+    emoji: '⛓️',
+    stock: 92
   },
   {
     id: 6,
     name: 'Вітаміни та добавки',
-    price: '320 ₴',
+    price: 320,
     category: 'Здоров\'я',
     description: 'Комплекс вітамінів для здоров\'я шерсті',
-    emoji: '💊'
+    emoji: '💊',
+    stock: 56
   },
   {
     id: 7,
     name: 'Когтеточка',
-    price: '580 ₴',
+    price: 580,
     category: 'Меблі',
     description: 'Висока когтеточка з полками для лазіння',
-    emoji: '🌳'
+    emoji: '🌳',
+    stock: 8
   },
   {
     id: 8,
     name: 'Переноска для тварин',
-    price: '890 ₴',
+    price: 890,
     category: 'Аксесуари',
     description: 'Легка та зручна переноска для подорожей',
-    emoji: '🧳'
+    emoji: '🎒',
+    stock: 5
   },
   {
     id: 9,
     name: 'Миски для їжі та води',
-    price: '180 ₴',
+    price: 180,
     category: 'Аксесуари',
     description: 'Набір керамічних мисок різних розмірів',
-    emoji: '🥣'
+    emoji: '🍽️',
+    stock: 67
   }
 ];
 
@@ -93,7 +103,7 @@ export default function ProductsPage() {
       </section>
 
       {/* Client Component with interactive functionality */}
-      <ProductsClient products={products} />
+      <ProductsClient products={DEFAULT_PRODUCTS} />
 
       <Footer />
     </div>

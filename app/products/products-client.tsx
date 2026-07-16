@@ -7,10 +7,11 @@ import { useState } from 'react';
 interface Product {
   id: number;
   name: string;
-  price: string;
+  price: number | string;
   category: string;
   description: string;
   emoji: string;
+  stock?: number;
 }
 
 interface ProductsClientProps {
@@ -30,13 +31,15 @@ export default function ProductsClient({ products }: ProductsClientProps) {
     // Перевірити чи товар вже у кошику
     const existingItem = cart.find((item: any) => item.id === product.id);
 
+    const price = typeof product.price === 'string' ? parseInt(product.price) : product.price;
+
     if (existingItem) {
       existingItem.quantity += 1;
     } else {
       cart.push({
         id: product.id,
         name: product.name,
-        price: parseInt(product.price),
+        price: price,
         quantity: 1,
         emoji: product.emoji
       });
@@ -101,7 +104,9 @@ export default function ProductsClient({ products }: ProductsClientProps) {
                   <p className="text-gray-600 mb-4 text-sm">{product.description}</p>
 
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-purple-600">{product.price}</span>
+                    <span className="text-2xl font-bold text-purple-600">
+                      ₴{typeof product.price === 'string' ? product.price.replace(' ₴', '') : product.price}
+                    </span>
                     <button
                       onClick={() => handleAddToCart(product)}
                       disabled={selectedProduct === product.id}
