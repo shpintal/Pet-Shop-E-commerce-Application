@@ -135,40 +135,44 @@ export default function ProductForm({ mode, product }: ProductFormProps) {
 
   if (success) {
     return (
-      <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+      <div style={{ fontFamily: 'Lato, sans-serif' }} className="bg-white rounded-lg shadow-lg p-8 text-center">
         <div className="text-5xl mb-4">✅</div>
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">
+        <h2 style={{ color: 'rgb(119, 119, 119)', fontFamily: 'Poppins, sans-serif' }} className="text-2xl font-bold mb-2">
           {mode === 'create' ? 'Товар додано!' : 'Товар оновлено!'}
         </h2>
-        <p className="text-gray-600">Перенаправлення на список товарів...</p>
+        <p style={{ color: 'rgb(119, 119, 119)' }}>Перенаправлення на список товарів...</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8 space-y-6">
+    <form onSubmit={handleSubmit} style={{ fontFamily: 'Lato, sans-serif' }} className="bg-white rounded-lg shadow-lg p-8 space-y-6">
       {/* Emoji Selection */}
       <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-3">Іконка товару</label>
+        <label style={{ color: 'rgb(119, 119, 119)' }} className="block text-sm font-semibold mb-3">Іконка товару</label>
         <div className="relative">
           <button
             type="button"
             onClick={() => setShowEmojiPicker(!showEmojiPicker)}
-            className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-3xl hover:border-purple-500 transition text-center"
+            style={{ borderColor: 'rgb(220, 180, 210)' }}
+            className="w-full border-2 rounded-lg px-4 py-3 text-3xl transition text-center hover:opacity-80"
+            onFocus={(e) => { e.currentTarget.style.borderColor = 'rgb(175, 62, 143)'; }}
+            onBlur={(e) => { e.currentTarget.style.borderColor = 'rgb(220, 180, 210)'; }}
           >
             {formData.emoji}
           </button>
 
           {showEmojiPicker && (
-            <div className="absolute top-full mt-2 w-full bg-white border-2 border-gray-300 rounded-lg p-4 grid grid-cols-4 gap-2 z-10 shadow-lg">
+            <div style={{ borderColor: 'rgb(220, 180, 210)' }} className="absolute top-full mt-2 w-full bg-white border-2 rounded-lg p-4 grid grid-cols-4 gap-2 z-10 shadow-lg">
               {emojis.map((emoji) => (
                 <button
                   key={emoji}
                   type="button"
                   onClick={() => selectEmoji(emoji)}
-                  className={`text-3xl p-2 rounded hover:bg-purple-100 transition ${
-                    formData.emoji === emoji ? 'bg-purple-200' : ''
-                  }`}
+                  style={{
+                    backgroundColor: formData.emoji === emoji ? 'rgb(240, 220, 235)' : 'transparent',
+                  }}
+                  className="text-3xl p-2 rounded hover:opacity-70 transition"
                 >
                   {emoji}
                 </button>
@@ -180,51 +184,63 @@ export default function ProductForm({ mode, product }: ProductFormProps) {
 
       {/* Product Name */}
       <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-2">Назва товару *</label>
+        <label style={{ color: 'rgb(119, 119, 119)' }} className="block text-sm font-semibold mb-2">Назва товару *</label>
         <input
           type="text"
           name="name"
           value={formData.name}
           onChange={handleChange}
           placeholder="Сухий корм для котів"
-          className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:border-purple-500 outline-none transition"
+          style={{ borderColor: 'rgb(220, 180, 210)', color: 'rgb(119, 119, 119)' }}
+          className="w-full border-2 rounded-lg px-4 py-3 outline-none transition"
+          onFocus={(e) => { e.currentTarget.style.borderColor = 'rgb(175, 62, 143)'; }}
+          onBlur={(e) => { e.currentTarget.style.borderColor = 'rgb(220, 180, 210)'; }}
         />
       </div>
 
       {/* Price and Stock */}
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">Ціна (₴) *</label>
+          <label style={{ color: 'rgb(119, 119, 119)' }} className="block text-sm font-semibold mb-2">Ціна (₴) *</label>
           <input
             type="number"
             name="price"
             value={formData.price}
             onChange={handleChange}
             placeholder="350"
-            className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:border-purple-500 outline-none transition"
+            style={{ borderColor: 'rgb(220, 180, 210)', color: 'rgb(119, 119, 119)' }}
+            className="w-full border-2 rounded-lg px-4 py-3 outline-none transition"
+            onFocus={(e) => { e.currentTarget.style.borderColor = 'rgb(175, 62, 143)'; }}
+            onBlur={(e) => { e.currentTarget.style.borderColor = 'rgb(220, 180, 210)'; }}
           />
         </div>
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">Залишок (шт) *</label>
+          <label style={{ color: 'rgb(119, 119, 119)' }} className="block text-sm font-semibold mb-2">Залишок (шт) *</label>
           <input
             type="number"
             name="stock"
             value={formData.stock}
             onChange={handleChange}
             placeholder="45"
-            className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:border-purple-500 outline-none transition"
+            style={{ borderColor: 'rgb(220, 180, 210)', color: 'rgb(119, 119, 119)' }}
+            className="w-full border-2 rounded-lg px-4 py-3 outline-none transition"
+            onFocus={(e) => { e.currentTarget.style.borderColor = 'rgb(175, 62, 143)'; }}
+            onBlur={(e) => { e.currentTarget.style.borderColor = 'rgb(220, 180, 210)'; }}
           />
         </div>
       </div>
 
       {/* Category */}
       <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-2">Категорія *</label>
+        <label style={{ color: 'rgb(119, 119, 119)' }} className="block text-sm font-semibold mb-2">Категорія *</label>
         <select
           name="category"
           value={formData.category}
           onChange={handleChange}
-          className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:border-purple-500 outline-none transition"
+          style={{ borderColor: 'rgb(220, 180, 210)', color: 'rgb(119, 119, 119)' }}
+          className="w-full border-2 rounded-lg px-4 py-3 outline-none transition"
+          onFocus={(e) => { e.currentTarget.style.borderColor = 'rgb(175, 62, 143)'; }}
+          onBlur={(e) => { e.currentTarget.style.borderColor = 'rgb(220, 180, 210)'; }}
         >
           {categories.map((cat) => (
             <option key={cat} value={cat}>
@@ -236,20 +252,23 @@ export default function ProductForm({ mode, product }: ProductFormProps) {
 
       {/* Description */}
       <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-2">Опис товару *</label>
+        <label style={{ color: 'rgb(119, 119, 119)' }} className="block text-sm font-semibold mb-2">Опис товару *</label>
         <textarea
           name="description"
           value={formData.description}
           onChange={handleChange}
           placeholder="Збалансований сухий корм преміум якості для котів..."
           rows={5}
-          className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:border-purple-500 outline-none transition resize-none"
+          style={{ borderColor: 'rgb(220, 180, 210)', color: 'rgb(119, 119, 119)' }}
+          className="w-full border-2 rounded-lg px-4 py-3 outline-none transition resize-none"
+          onFocus={(e) => { e.currentTarget.style.borderColor = 'rgb(175, 62, 143)'; }}
+          onBlur={(e) => { e.currentTarget.style.borderColor = 'rgb(220, 180, 210)'; }}
         />
       </div>
 
       {/* Error Message */}
       {error && (
-        <div className="bg-red-50 border-2 border-red-200 text-red-700 p-4 rounded-lg">
+        <div style={{ backgroundColor: 'rgb(255, 240, 240)', borderColor: 'rgb(220, 180, 210)', color: 'rgb(200, 80, 100)' }} className="border-2 p-4 rounded-lg">
           {error}
         </div>
       )}
@@ -259,7 +278,8 @@ export default function ProductForm({ mode, product }: ProductFormProps) {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-lg font-bold hover:opacity-90 transition disabled:opacity-50"
+          style={{ backgroundColor: 'rgb(175, 62, 143)' }}
+          className="flex-1 text-white py-3 rounded-lg font-bold hover:opacity-90 transition disabled:opacity-50"
         >
           {isSubmitting
             ? 'Збереження...'
@@ -269,7 +289,8 @@ export default function ProductForm({ mode, product }: ProductFormProps) {
         </button>
         <Link
           href="/admin/products"
-          className="flex-1 bg-gray-200 text-gray-800 py-3 rounded-lg font-bold hover:bg-gray-300 transition text-center"
+          style={{ backgroundColor: 'rgb(245, 245, 245)', color: 'rgb(119, 119, 119)' }}
+          className="flex-1 py-3 rounded-lg font-bold hover:opacity-80 transition text-center"
         >
           ❌ Скасувати
         </Link>
