@@ -96,8 +96,8 @@ export default function ProductsClient({ products }: ProductsClientProps) {
 
   return (
     <>
-      {/* Filter Section - Sticky */}
-      <section className="bg-gradient-to-r from-purple-50 to-pink-50 py-6 sticky top-0 z-20 border-b-2 border-purple-200">
+      {/* Filter Section */}
+      <section className="bg-gradient-to-r from-purple-50 to-pink-50 py-6 border-b-2 border-purple-200">
         <div className="max-w-7xl mx-auto px-4">
           {/* Mobile Filter Toggle */}
           <div className="md:hidden mb-4">
